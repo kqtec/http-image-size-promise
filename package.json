@@ -1,6 +1,6 @@
 {
   "name": "http-image-size-promise",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Promise to detect the image dimensions from a file via HTTP(S)",
   "licenses": [
     {
