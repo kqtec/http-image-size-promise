@@ -1,0 +1,60 @@
+{
+  "name": "http-image-size-promise",
+  "version": "0.0.0",
+  "description": "Promise to detect the image dimensions from a file via HTTP(S)",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/shinnn/http-image-size-promise/blob/master/LICENSE"
+    }
+  ],
+  "repository": "shinnn/http-image-size-promise",
+  "author": {
+    "name": "Shinnosuke Watanabe",
+    "url": "https://github.com/shinnn"
+  },
+  "scripts": {
+    "lint": "jshint *.js --reporter node_modules/jshint-stylish/stylish",
+    "build": "rimraf tmp && esnext test.js -o tmp/test-es5.js",
+    "pretest": "${npm_package_scripts_lint} && npm run-script build",
+    "test": "mocha tmp/test-es5.js --reporter spec --timeout 6000"
+  },
+  "files": [
+    "index.js",
+    "LICENSE"
+  ],
+  "keywords": [
+    "image",
+    "size",
+    "dimension",
+    "detect",
+    "width",
+    "height",
+    "http",
+    "https",
+    "get",
+    "promise",
+    "bmp",
+    "gif",
+    "jpg",
+    "jpeg",
+    "png",
+    "psd",
+    "tiff",
+    "webp"
+  ],
+  "dependencies": {
+    "es6-promise": "^1.0.0",
+    "global": "^4.2.1",
+    "http-s": "^0.1.0",
+    "image-size-stream": "^0.1.1"
+  },
+  "devDependencies": {
+    "esnext": "^0.8.2",
+    "jshint": "^2.5.2",
+    "jshint-stylish": "^0.4.0",
+    "mocha": "^1.20.1",
+    "require-main": "^0.1.1",
+    "rimraf": "^2.2.8"
+  }
+}
