@@ -18,7 +18,7 @@ module.exports = function httpImageSizePromise(url) {
       resolve(dimensions);
     })
     .on('error', reject);
-    
+
     try {
       var request = httpOrHttps(url).get(url, function(response) {
         response
