@@ -5,7 +5,7 @@
 [![Dependency Status](https://david-dm.org/shinnn/http-image-size-promise.svg)](https://david-dm.org/shinnn/http-image-size-promise)
 [![devDependency Status](https://david-dm.org/shinnn/http-image-size-promise/dev-status.svg)](https://david-dm.org/shinnn/http-image-size-promise#info=devDependencies)
 
-Promise to detect the dimensions of a image file via HTTP(S), using [image-size-stream](https://github.com/shinnn/image-size-stream)
+Promise to detect the dimensions of an image file via HTTP(S), using [image-size-stream](https://github.com/shinnn/image-size-stream)
 
 ```javascript
 var httpImageSizePromise = require('http-image-size-promise');
