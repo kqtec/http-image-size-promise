@@ -48,13 +48,13 @@ var httpImageSizePromise = require('http-image-size-promise');
 ### httpImageSizePromise(imageFileUrl)
 
 imageFileUrlStr: `String` which starts with `"http:"` or `"https:"`  
-Return: [`Promise`](http://promises-aplus.github.io/promises-spec/)
+Return: `Object` ([Promise](http://promisesaplus.com/))
 
 First, it gets the image file via [HTTP](http://nodejs.org/api/http.html#http_http_get_options_callback) or [HTTPS](http://nodejs.org/api/https.html#https_https_get_options_callback). The protocol is automatically selected according to the URL.
 
-It will be [*fulfilled*](http://promises-aplus.github.io/promises-spec/#point-26) with an object in the form `{width: [Number], height: [Number]}` when it detects the width and height of the image file.
+When it detects the width and height of the image, it will be [*fulfilled*](http://promisesaplus.com/#point-26) with an object in the form `{width: [Number], height: [Number]}` as an argument of callback.
 
-It will be [*rejected*](http://promises-aplus.github.io/promises-spec/#point-30) with an error when it fails to get the file, or the file is not supported.
+When it fails to get the file or the file is not supported, it will be [*rejected*](http://promisesaplus.com/#point-30) with an error as an argument of callback.
 
 ```javascript
 var imageSize = httpImageSizePromise();
