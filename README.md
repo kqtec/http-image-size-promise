@@ -2,6 +2,8 @@
 
 [![NPM version](https://badge.fury.io/js/http-image-size-promise.svg)](http://badge.fury.io/js/http-image-size-promise)
 [![Build Status](https://travis-ci.org/shinnn/http-image-size-promise.svg?branch=master)](https://travis-ci.org/shinnn/http-image-size-promise)
+[![Build status](https://ci.appveyor.com/api/projects/status/mqc94tx1srm6s7uv?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/http-image-size-promise)
+[![Coverage Status](https://img.shields.io/coveralls/shinnn/http-image-size-promise.svg?style=flat)](https://coveralls.io/r/shinnn/http-image-size-promise)
 [![Dependency Status](https://david-dm.org/shinnn/http-image-size-promise.svg)](https://david-dm.org/shinnn/http-image-size-promise)
 [![devDependency Status](https://david-dm.org/shinnn/http-image-size-promise/dev-status.svg)](https://david-dm.org/shinnn/http-image-size-promise#info=devDependencies)
 
