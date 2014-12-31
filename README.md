@@ -1,6 +1,5 @@
 # http-image-size-promise 
 
-[![NPM version](https://badge.fury.io/js/http-image-size-promise.svg)](http://badge.fury.io/js/http-image-size-promise)
 [![Build Status](https://travis-ci.org/shinnn/http-image-size-promise.svg?branch=master)](https://travis-ci.org/shinnn/http-image-size-promise)
 [![Build status](https://ci.appveyor.com/api/projects/status/mqc94tx1srm6s7uv?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/http-image-size-promise)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/http-image-size-promise.svg?style=flat)](https://coveralls.io/r/shinnn/http-image-size-promise)
@@ -14,32 +13,26 @@ var httpImageSizePromise = require('http-image-size-promise');
 
 httpImageSizePromise('http://placehold.it/350x150')
 .then(function(dimensions) {
-  console.log(dimensions);
+  dimensions; //=> {width: 350, height: 150, type: 'gif'}
 })
 .catch(function(reason) {
-  throw reason;
+  console.warn(reason);
 });
-
-//=> yields: {width: 350, height: 150}
 ```
 
 ## Installation
 
-[Install with npm](https://www.npmjs.org/doc/cli/npm-install.html). (Make sure you have installed [Node](http://nodejs.org/))
+[![NPM version](https://img.shields.io/npm/v/http-image-size-promise.svg?style=flat)](https://www.npmjs.com/package/http-image-size-promise)
 
-```
+[Use npm.](https://docs.npmjs.com/cli/install)
+
+```sh
 npm install --save http-image-size-promise
 ```
 
 ## Supported image formats
 
-* [BMP](http://wikipedia.org/wiki/BMP_file_format)
-* [GIF](http://wikipedia.org/wiki/Graphics_Interchange_Format)
-* [JPEG](http://wikipedia.org/wiki/JPEG)
-* [PNG](http://wikipedia.org/wiki/Portable_Network_Graphics)
-* [PSD](http://wikipedia.org/wiki/Adobe_Photoshop#File_format)
-* [TIFF](http://wikipedia.org/wiki/Tagged_Image_File_Format)
-* [WebP](http://wikipedia.org/wiki/WebP)
+Check [image-size-stream](https://github.com/shinnn/image-size-stream#supported-image-formats) doc.
 
 ## API
 
@@ -47,14 +40,17 @@ npm install --save http-image-size-promise
 var httpImageSizePromise = require('http-image-size-promise');
 ```
 
-### httpImageSizePromise(imageFileUrl)
+### httpImageSizePromise(*imageFileUrl* [, *options*])
 
-imageFileUrlStr: `String` which starts with `"http:"` or `"https:"`  
+*imageFileUrl*: `String` (URL) or `Object` ([parsed URL object](http://nodejs.org/api/url.html#url_url_parse_urlstr_parsequerystring_slashesdenotehost))  
+*options*: `Object` (directly passed to the [got](https://github.com/sindresorhus/got#options) options and the [image-size-stream](https://github.com/shinnn/image-size-stream) option)  
 Return: `Object` ([Promise](http://promisesaplus.com/))
 
-First, it gets the image file via [HTTP](http://nodejs.org/api/http.html#http_http_get_options_callback) or [HTTPS](http://nodejs.org/api/https.html#https_https_get_options_callback). The protocol is automatically selected according to the URL.
+It gets an image file via [got](https://github.com/sindresorhus/got) module.
 
-When it detects the width and height of the image, it will be [*fulfilled*](http://promisesaplus.com/#point-26) with an object in the form `{width: [Number], height: [Number]}` as an argument of callback.
+When it detects the width and height of the image, it will be [*fulfilled*](http://promisesaplus.com/#point-26) with an object in the form `{width: [Number], height: [Number], type: [String]}` as an argument of callback.
+
+`type` will be one of the following strings: `bmp` `gif` `jpg` `png` `psd` `svg` `tiff` `webp`
 
 When it fails to get the file or the file is not supported, it will be [*rejected*](http://promisesaplus.com/#point-30) with an error as an argument of callback.
 
@@ -63,29 +59,14 @@ var imageSize = httpImageSizePromise();
 
 var onFulfilled = function(dimensions) {
   console.log('Size: ' + dimensions.width + ' x ' + dimensions.height);
+  console.log('Type: ' + dimensions.type);
 };
 
 var onRejected = function(reason) {
-  throw reason;
+  console.warn(reason);
 };
 
 imageSize('https://url.to/image.jpg').then(onFulfilled, onRejected);
-```
-
-### httpImageSizePromise(imageFileUrlObj)
-
-imageFileUrlObj: `Object`
-
-It also accepts an `Object` of [request options](http://nodejs.org/api/http.html#http_http_request_options_callback). It is useful to reuse the result of [url.parse()](http://nodejs.org/api/url.html#url_url_parse_urlstr_parsequerystring_slashesdenotehost).
-
-```javascript
-var url = require('url');
-var imageSize = httpImageSizePromise();
-
-var options = url.parse('https://url.to/image.gif');
-//=> {protocol: 'https:', slashes: true, auth: null, ...}
-
-imageSize(options).then(onFulfilled, onRejected);
 ```
 
 ## License
