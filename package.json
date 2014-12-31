@@ -14,10 +14,10 @@
     "url": "https://github.com/shinnn"
   },
   "scripts": {
-    "lint": "jshint *.js --reporter node_modules/jshint-stylish/stylish",
-    "build": "rimraf tmp && esnext test.js -o tmp/test-es5.js",
-    "pretest": "${npm_package_scripts_lint} && npm run-script build",
-    "test": "mocha tmp/test-es5.js --reporter spec --timeout 6000"
+    "pretest": "jscs *.js && eslint *.js",
+    "test": "node test.js | tap-spec",
+    "coverage": "istanbul cover test.js",
+    "coveralls": "${npm_package_scripts_coverage} && istanbul-coveralls"
   },
   "files": [
     "index.js",
@@ -50,11 +50,12 @@
     "image-size-stream": "^0.1.1"
   },
   "devDependencies": {
-    "esnext": "^0.8.2",
-    "jshint": "^2.5.2",
-    "jshint-stylish": "^0.4.0",
-    "mocha": "^1.20.1",
-    "require-main": "^0.1.1",
-    "rimraf": "^2.2.8"
+    "eslint": "^0.11.0",
+    "istanbul": "^0.3.5",
+    "istanbul-coveralls": "^1.0.1",
+    "jscs": "^1.9.0",
+    "tap-spec": "^2.1.2",
+    "tape": "^3.0.3"
+  },
   }
 }
