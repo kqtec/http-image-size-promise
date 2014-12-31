@@ -40,14 +40,15 @@
     "jpeg",
     "png",
     "psd",
+    "svg",
     "tiff",
     "webp"
   ],
   "dependencies": {
-    "es6-promise": "^1.0.0",
-    "global": "^4.2.1",
-    "http-s": "^0.1.0",
-    "image-size-stream": "^0.1.1"
+    "got": "^2.2.0",
+    "http-s": "^1.0.0",
+    "image-size-stream": "^1.0.0",
+    "wrap-promise": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^0.11.0",
