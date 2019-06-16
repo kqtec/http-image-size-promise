@@ -1,6 +1,6 @@
 {
   "name": "@kqtec/http-image-size-promise",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Promise to detect the image dimensions from a file via HTTP(S)",
   "license": "MIT",
   "repository": {
@@ -43,7 +43,6 @@
     "webp"
   ],
   "dependencies": {
-    "get-image-base64": "^1.0.1",
     "image-decode": "^1.2.2"
   },
   "devDependencies": {
