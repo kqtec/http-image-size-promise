@@ -4,27 +4,15 @@
 */
 'use strict';
 
-var got = require('got');
-var imageSizeStream = require('image-size-stream');
-var wrapPromise = require('wrap-promise');
+var image_decode_1 = require("image-decode");
+var get_image_base64_1 = require("get-image-base64");
 
-module.exports = function httpImageSizePromise(url, options) {
-  var proxy;
-  var size = imageSizeStream(options);
-
-  return wrapPromise(function(resolve, reject) {
-    size
-      .on('error', function(err) {
-        proxy.destroy();
-        reject(err);
-      })
-      .on('size', function(dimensions) {
-        proxy.destroy();
-        resolve(dimensions);
-      });
-
-    proxy = got(url, options)
-      .on('error', reject)
-      .pipe(size);
+let ImageSize =function(uri,options){
+  return new Promise((resolve, reject) => {
+    get_image_base64_1(uri,function(data){
+      resolve(image_decode_1(data))
+    })
   });
-};
+}
+
+module.default.exports = ImageSize

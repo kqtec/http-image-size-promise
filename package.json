@@ -1,17 +1,15 @@
 {
-  "name": "http-image-size-promise",
-  "version": "1.0.0",
+  "name": "@kqtec/http-image-size-promise",
+  "version": "1.2.0",
   "description": "Promise to detect the image dimensions from a file via HTTP(S)",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/shinnn/http-image-size-promise/blob/master/LICENSE"
-    }
-  ],
-  "repository": "shinnn/http-image-size-promise",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kqtec/http-image-size-promise.git"
+  },
   "author": {
-    "name": "Shinnosuke Watanabe",
-    "url": "https://github.com/shinnn"
+    "name": "杨智宸",
+    "url": "http://www.baidu.com"
   },
   "scripts": {
     "pretest": "jscs *.js && eslint *.js",
@@ -45,23 +43,10 @@
     "webp"
   ],
   "dependencies": {
-    "got": "^2.2.0",
-    "http-s": "^1.0.0",
-    "image-size-stream": "^1.0.0",
-    "wrap-promise": "^1.0.0"
+    "get-image-base64": "^1.0.1",
+    "image-decode": "^1.2.2"
   },
   "devDependencies": {
-    "eslint": "^0.11.0",
-    "istanbul": "^0.3.5",
-    "istanbul-coveralls": "^1.0.1",
-    "jscs": "^1.9.0",
-    "tap-spec": "^2.1.2",
-    "tape": "^3.0.3"
-  },
-  "jscsConfig": {
-    "preset": "google",
-    "maximumLineLength": 98,
-    "requireBlocksOnNewline": true,
-    "validateLineBreaks": "LF"
+   
   }
 }
